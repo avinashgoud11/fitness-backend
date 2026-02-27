@@ -65,7 +65,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticat
             ).permitAll()
 
             // Authentication endpoints are public
-           .requestMatchers("/api/auth/login", "/api/auth/register", "/api/api/auth/login", "/api/api/auth/register").permitAll()
+            .requestMatchers("/auth/login","/auth/register","/api/auth/login", "/api/auth/register", "/api/api/auth/login", "/api/api/auth/register").permitAll()
 
             // Admin-only endpoints
             .requestMatchers("/api/admins/").hasAuthority("ROLE_ADMIN")
