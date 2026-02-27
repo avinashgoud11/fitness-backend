@@ -6,8 +6,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Avinashgoud@19
       MYSQL_DATABASE: fitness_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Avinashgoud@19
+      MYSQL_USER: fitness_user
+      MYSQL_PASSWORD: fitness@123
     ports:
       - "3307:3306"
     volumes:
@@ -22,8 +22,8 @@ services:
       - mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/fitness_db
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Avinashgoud@19
+      SPRING_DATASOURCE_USERNAME: fitness_user
+      SPRING_DATASOURCE_PASSWORD: fitness@123
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       JWT_SECRET: your-very-secure-secret-key-at-least-256-bits-long
       JWT_EXPIRATION: 86400000

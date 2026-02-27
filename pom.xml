@@ -26,19 +26,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
     
-    <dependencyManagement>
-        <dependencies>
-
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt-api</artifactId>
-                <version>0.11.5</version>
-            </dependency>
-
-            
-        </dependencies>
-    </dependencyManagement>
-    
     <dependencies>
 
 	    <dependency>
@@ -78,7 +65,7 @@
     <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt-api</artifactId>
-        
+        <version>0.11.5</version>
     </dependency>
 	<dependency>
         <groupId>io.jsonwebtoken</groupId>
@@ -155,37 +142,6 @@
             </plugin>
         </plugins>
     </build>
-    
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/release</url>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
     <reporting>
         <plugins>
           <plugin>
@@ -196,16 +152,4 @@
           </plugin>
         </plugins>
       </reporting>
-      
-
-    <distributionManagement>
-        <repository>
-            <id>my-repo</id>
-            <url>https://localhost:8080/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>my-repo-snapshots</id>
-            <url>https://localhost:8080/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>

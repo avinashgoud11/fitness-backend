@@ -2,6 +2,7 @@ package com.gym.gym.controller;
 
 // TODO: Replace with the correct import for ContactForm, for example:
 import com.gym.gym.model.ContactForm;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,11 @@ public class ContactController {
 
     @PostMapping("/contact")
     public ResponseEntity<?> handleContactForm(@RequestBody @Valid ContactForm contactForm,
-@RequestHeader("X-Forwarded-For") String ipAddress) {
+@RequestHeader(value = "X-Forwarded-For", required = false) String forwardedFor,
+                                               HttpServletRequest request) {
+        String ipAddress = (forwardedFor != null && !forwardedFor.isBlank())
+                ? forwardedFor.split(",")[0].trim()
+                : request.getRemoteAddr();
         if (!isAllowed(ipAddress)) {
             return ResponseEntity.status(429).body(Map.of("message", "Too many requests. Please try again later."));
         }
